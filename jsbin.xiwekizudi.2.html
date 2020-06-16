@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2020 by anonymous (http://jsbin.com/xiwekizudi/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+* {
+  margin: 0; /* le kell nullázi, h a clocksnál pontos legyen a beállitás */
+  padding: 0; /* le kell nullázi, h a clocksnál pontos legyen a beállitás */
+}
+
+
+html, body {
+  height: 100%;
+}
+
+
+#clock {
+  text-align: center;
+  position: relative;
+  bottom: -50%;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 60px;
+  font: white;
+  margin-top: -30px; /* a top 50% miatt kell, mert a top az elem tetejét igazítja, nem az elem közepét */
+  padding-left: 20%;
+  padding-right: 20%;
+  margin: 10%;
+  border: 2px solid white;
+  border-radius: 35px;
+ 
+}
+
+
+</style>
+</head>
+<body>
+  <div id="clock">12:13:14 </div>
+<script id="jsbin-javascript">
+function colorClock () {
+
+var date = new Date();
+var hours = date.getHours();
+var minutes = date.getMinutes();
+var seconds = date.getSeconds();
+
+if (hours < 10) {
+  hours = '0' + hours;
+}
+
+if (minutes < 10) {
+  minutes = '0' + minutes;
+}
+
+if (seconds < 10) {
+  seconds = '0' + seconds;
+}
+
+var clockFace = hours + ':' + minutes + ':' + seconds;
+
+
+document.getElementById('clock').innerHTML = clockFace;
+
+setTimeout (function () {
+  colorClock();
+}, 1000);
+  
+  
+var hexColor = '#' + hours + minutes + seconds;  
+document.body.style.background = hexColor;
+  
+document.getElementById('clock').style.background = 'steelblue';
+};
+
+
+// colorClock(document.body.style.background = 'darkblue');
+colorClock();
+
+
+</script>
+</body>
+</html>
